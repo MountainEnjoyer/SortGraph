@@ -34,6 +34,7 @@ int main() {
         values[i] = prev_value;
         Vector2 r_start = (Vector2) {start.x - (l_value + GAP), start.y};
         Vector2 r_end = (Vector2) {start.x - (l_value + GAP), HEIGHT - (values[i-1] *(HEIGHT / LIST_MAX) + (GAP * 2))+ values[i-1]/GAP};
+        ClearBackground(BLACK);
         DrawLineEx(r_start, r_end,l_value ,RED);
       }
 
@@ -44,6 +45,7 @@ int main() {
     sleep(1);
     printf("\ninit\n");
     for (int h = 0; h < 20; h++) printf(" %d", values[h]);
+    ClearBackground(BLACK);
     EndDrawing();
   }
   return 0;
