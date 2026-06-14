@@ -35,6 +35,7 @@ int main() {
         Vector2 r_start = (Vector2) {start.x - (l_value + GAP), start.y};
         Vector2 r_end = (Vector2) {start.x - (l_value + GAP), HEIGHT - (values[i-1] *(HEIGHT / LIST_MAX) + (GAP * 2))+ values[i-1]/GAP};
         ClearBackground(BLACK);
+        DrawLineEx(r_start, (Vector2){r_start.x, 0} ,l_value ,BLACK);
         DrawLineEx(r_start, r_end,l_value ,RED);
       }
 
