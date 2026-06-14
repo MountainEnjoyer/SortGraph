@@ -13,7 +13,7 @@ const int l_value =(WIDTH-(GAP *(LEN_LIST+2))) /LEN_LIST ;
 
 int values[LEN_LIST] = {17,100,27,63,71,87,42,26,01,52,65,96,61,28,36,14,75,46,56,15};
 
-int main() {
+int* main() {
   InitWindow(WIDTH, HEIGHT, "Sort Graphic");
   SetTargetFPS(60);
 
@@ -49,11 +49,9 @@ int main() {
       prev_value = values[i];
       g_start.x += l_value + GAP ;
     }
-    sleep(1);
-    printf("\ninit\n");
-    for (int h = 0; h < 20; h++) printf(" %d", values[h]);
+    usleep(100000);
     ClearBackground(BLACK);
     EndDrawing();
   }
-  return 0;
+  return(values);
 }
