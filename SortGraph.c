@@ -19,7 +19,7 @@ int main() {
 
   while(!WindowShouldClose()) {
     int prev_value = 0;
-    Vector2 start = (Vector2) {l_value * 0.66 + GAP,HEIGHT - GAP*1.5};
+    Vector2 g_start = (Vector2) {l_value * 0.66 + GAP,HEIGHT - GAP*1.5};
     BeginDrawing();
     Vector2 start2 = (Vector2) {l_value * 0.66 +GAP,HEIGHT - GAP*1.5};
     for (int j = 0; j < LEN_LIST; j++) {
@@ -32,16 +32,22 @@ int main() {
       if(values[i] <= values[i-1] && prev_value!= 0) {
         values[i-1] = values[i];
         values[i] = prev_value;
-        Vector2 r_start = (Vector2) {start.x - (l_value + GAP), start.y};
-        Vector2 r_end = (Vector2) {start.x - (l_value + GAP), HEIGHT - (values[i-1] *(HEIGHT / LIST_MAX) + (GAP * 2))+ values[i-1]/GAP};
-        ClearBackground(BLACK);
+        Vector2 r_start = (Vector2) {g_start.x - (l_value + GAP), g_start.y};
+        Vector2 r_end = (Vector2) {g_start.x - (l_value + GAP), HEIGHT - (values[i-1] *(HEIGHT / LIST_MAX) + (GAP * 2))+ values[i-1]/GAP};
+
         DrawLineEx(r_start, (Vector2){r_start.x, 0} ,l_value ,BLACK);
         DrawLineEx(r_start, r_end,l_value ,RED);
+
+
+        Vector2 g_end = (Vector2) {g_start.x, HEIGHT - (values[i] *(HEIGHT / LIST_MAX) + (GAP * 2))+ values[i]/GAP};
+        DrawLineEx(g_start, (Vector2){g_start.x, 0} ,l_value ,BLACK);
+        DrawLineEx(g_start, g_end,l_value ,GREEN);
+
       }
 
       ClearBackground(BLACK);
       prev_value = values[i];
-      start.x += l_value + GAP ;
+      g_start.x += l_value + GAP ;
     }
     sleep(1);
     printf("\ninit\n");
