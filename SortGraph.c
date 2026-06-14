@@ -17,21 +17,29 @@ int main(int argc, char *argv[]) {
 
   while(!WindowShouldClose()) {
     int prev_value = 0;
-    Vector2 start = (Vector2) {1,(HEIGHT - LIST_MAX/2)};
+    Vector2 start = (Vector2) {1,HEIGHT / 5 - LIST_MAX};
     BeginDrawing();
     ClearBackground(BLACK);
-    for (int i=0; i<=19; i++ ) {
-      Vector2 end = (Vector2) {start.x, values[i] *(HEIGHT - LIST_MAX)/100};
-      DrawLineEx(start,end,l_value ,GREEN);
-      start.x += l_value + 1;
+    for (int i=0; i<LEN_LIST; i++ ) {
       if(values[i] <=prev_value && prev_value!= 0) {
         values[i-1] = values[i];
         values[i] = prev_value;
       }
+
       prev_value = values[i];
+      Vector2 end = (Vector2) {start.x, values[i] *HEIGHT / LIST_MAX};
+      DrawLineEx(start,end,l_value ,GREEN);
+      start.x += l_value + 1;
+      Vector2 start2 = (Vector2) {1,HEIGHT - LIST_MAX/5};
+      for (int i = 0; i<LEN_LIST; i++) {
+        Vector2 end = (Vector2) {start2.x, values[i] *HEIGHT / LIST_MAX};
+        DrawLineEx(start2,end,l_value ,GRAY);
+        start2.x += l_value + 1;
+
+      }
     }
-    //printf("init\n");
-    //for (int i = 0; i < 20; i++) printf("list: %d", values[i]);
+    printf("\ninit\n");
+    for (int i = 0; i < 20; i++) printf("list: %d", values[i]);
     EndDrawing();
   }
   return 0;
