@@ -3,7 +3,7 @@
 #include <unistd.h>
 
 #define WIDTH 1200
-#define HEIGHT 600
+#define HEIGHT 900
 
 #define LEN_LIST 20
 #define LIST_MAX 100
@@ -13,7 +13,7 @@ const int l_value =(WIDTH-(GAP *(LEN_LIST+2))) /LEN_LIST ;
 
 int values[LEN_LIST] = {17,100,27,63,71,87,42,26,01,52,65,96,61,28,36,14,75,46,56,15};
 
-int* main() {
+int *main() {
   InitWindow(WIDTH, HEIGHT, "Sort Graphic");
   SetTargetFPS(60);
 
