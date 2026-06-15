@@ -49,7 +49,7 @@ int* main() {
       prev_value = values[i];
       g_start.x += l_value + GAP ;
     }
-    usleep(100000);
+    usleep(300000);
     ClearBackground(BLACK);
     EndDrawing();
   }
